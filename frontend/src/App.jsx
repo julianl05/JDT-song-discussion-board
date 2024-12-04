@@ -1,6 +1,20 @@
+import './App.css'
+import Navbar from './components/navbar/navbar'
+import Date from './components/date/date'
+import Songs from './components/songs/songs'
 function App() {
   return (
-    <h1>Hello World</h1>
+    <>
+      <Navbar/>
+      <div class="container">
+        <Date/>
+        <Songs/>
+      </div>
+      
+      <div>
+
+      </div>
+    </>
   )
 }
 

@@ -1,0 +1,12 @@
+body {
+    font-family: "Roboto";
+    background-color: #dedede;
+    color: #333;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
