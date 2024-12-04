@@ -15,6 +15,12 @@
     height:300px;
 }
 
+.card:hover {
+    /* transform: scale(1.1); */
+    transform: box-shadow(20px 20px 20px rgba(0, 0, 0, 0.5));
+    transition: 0.3s;
+}
+
 .content {
 
 }
