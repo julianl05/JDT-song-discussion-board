@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import cover1 from '../../assets/rynweaver.jpeg'
 import cover2 from '../../assets/hippocampus.jpg'
 import cover3 from '../../assets/halfalive.jpg'
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography } from '@mui/material'
+
 function Songs() {
     const [loading, setLoading] = useState(true);
     const [songData, setSongData] = useState([]);
@@ -13,12 +14,6 @@ function Songs() {
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
-
-    const songs = [
-        { title: "Song 1", artist: "Artist 1", cover: cover1 },
-        { title: "Song 2", artist: "Artist 2", cover: cover2 },
-        { title: "Song 3", artist: "Artist 3", cover: cover3 }
-    ];
 
     useEffect(() => {
         console.log('Fetching song data...');
@@ -40,7 +35,7 @@ function Songs() {
                     const data = await response.json();
                     
                     const song = {
-                        title: data['full_title'],
+                        title: data['title'],
                         artist: data['artist_names'],
                         cover: data['song_art_image_url']
                     }

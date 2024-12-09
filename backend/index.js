@@ -3,6 +3,10 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import axios from 'axios'
+import { MongoClient } from 'mongodb'
+
+
+
 
 dotenv.config()
 
@@ -12,6 +16,13 @@ app.use(bodyParser.json())
 
 const API_KEY = process.env.API_KEY
 const PORT = process.env.PORT || 4000
+
+const mongourl = process.env.MONGO_URL
+const mongoclient = new MongoClient(mongourl, {})
+
+mongoclient.connect().then(() => {
+    console.log("Connected to MongoDB")
+})
 
 app.get('/songs/:id', async (req, res) => {
     const { id } = req.params;
