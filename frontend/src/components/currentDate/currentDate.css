@@ -1,7 +1,13 @@
 #date {
-    font-size: 10px;
+    font-size: 30px;
     color: #333;
     /* display: flex; */
     /* justify-content: right; */
-    padding: 40px;
+    padding: 20px;
+    font-weight: bold;
+}
+#dateContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

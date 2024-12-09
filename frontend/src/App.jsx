@@ -19,8 +19,15 @@ function App() {
       <div class="container">
         <CurrentDate/>
         <Songs/>
-        <CommentList comments={comments}/>
-        <CommentBox addComment={addComment}/>
+        <div class="commentSection">
+          <div id="commentsDiv">
+              <div id="discussion title">
+                  <h2>Discussion</h2>
+              </div>
+              <CommentList comments={comments}/>
+              <CommentBox addComment={addComment}/>
+          </div>
+        </div>
       </div>
       
       <div>

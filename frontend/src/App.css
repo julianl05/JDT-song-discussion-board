@@ -10,3 +10,23 @@ body {
     align-items: center;
 
 }
+.commentSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    margin: 20px;
+    width: 100%;
+}
+#commentsDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin-top: 20px;
+    width: 900px;
+    border-radius: 5px;
+    padding: 40px;
+    background-color: lightgray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

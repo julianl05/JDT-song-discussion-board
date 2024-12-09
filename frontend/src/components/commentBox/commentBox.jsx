@@ -19,24 +19,35 @@ function CommentBox({ addComment }) {
     
     return (
         <form onSubmit={ handleSubmit }>
-            <label htmlFor="username">Username:</label>
-            <input
-                id="username"
-                type="text"
-                placeholder="Your username"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-                required
-            />
-            <label htmlFor="comment">Comment</label>
-            <textarea
-                id="comment"
-                placeholder="Your comment"
-                value={comment}
-                onChange={e => setComment(e.target.value)}
-                required
-            />
-            <button type="submit">Comment</button>
+            
+            <div class="commentBox">
+                <div id="usernameBox">
+                    <label id="usernameIdentifier" htmlFor="username">Post as:</label>
+                    <input
+                        id="username"
+                        type="text"
+                        placeholder="e.g. JulianLim123"
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                        required
+                    />
+                </div>
+                <hr ></hr>
+                <textarea
+                    id="comment"
+                    placeholder="Join the discussion..."
+                    value={comment}
+                    onChange={e => setComment(e.target.value)}
+                    required
+                />
+                <div id="submission">
+                    <button id="submit" type="submit">Submit</button>
+                </div>
+            </div>
+            
+            
+            {/* <label htmlFor="comment">Comment:</label> */}
+            
         </form>
     )
 }

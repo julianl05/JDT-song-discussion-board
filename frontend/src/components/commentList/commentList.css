@@ -1,0 +1,10 @@
+#commentList{
+    list-style-type:none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    margin-bottom:10px;
+}
