@@ -1,18 +1,30 @@
 import "./commentBox.css";
 
 import { useState } from "react";
+import { format } from 'date-fns';
 
-function CommentBox({ addComment }) {
+function CommentBox({ updateComments }) {
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
+    const formattedDate = encodeURIComponent(format(new Date(), 'MM/dd/yyyy'));
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (!username.trim() || !comment.trim()) {
             alert('Please fill in all fields.');
             return;
         }
-        addComment(username, comment);
+        console.log('Submitting comment:', JSON.stringify({ username, comment }));
+        const response = await fetch(`http://localhost:4000/comments/${formattedDate}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, comment })
+        })
+        if (response.ok) {
+            updateComments();
+        }
         setUsername('');
         setComment('');
     }

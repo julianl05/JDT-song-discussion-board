@@ -2,10 +2,11 @@ import "./currentDate.css"
 import { format } from 'date-fns'
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { useEffect } from "react";
 
-function currentDate() {
+function currentDate( {date} ) {
     
-    const currentDate = new Date();
+    const formattedDate = format(date, 'MM/dd/yyyy');
 
     const arrowStyles = {
       fontSize: 50,
@@ -21,7 +22,7 @@ function currentDate() {
         <ArrowLeftIcon
           sx={arrowStyles}
         />
-        <h1 id="date">{format(currentDate,'MM/dd/yyyy')}</h1>
+        <h1 id="date">{formattedDate}</h1>
         <ArrowRightIcon
           sx={arrowStyles}
         />
