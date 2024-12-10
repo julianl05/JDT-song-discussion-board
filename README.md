@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=900 height=900px src="thumbnail.png" alt="Project logo"></a>
+ <img src="thumbnail.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Random Songs Daily Discussion Board</h3>
