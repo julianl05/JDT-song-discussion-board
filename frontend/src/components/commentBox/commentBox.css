@@ -71,6 +71,9 @@ textarea::-webkit-scrollbar-track {
     margin:0px;
     border: 0px;
     font-weight: bold;
+    &:hover {
+        filter:brightness(0.95);
+    }
 }
 #submit:hover{
     cursor: pointer;
