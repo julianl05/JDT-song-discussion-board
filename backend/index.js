@@ -127,6 +127,16 @@ app.post('/comments/:date', async (req, res) => {
     res.json({ status: 'success' });
 });
 
+app.get('/getSongs/:date', async (req, res) => {
+    const date = decodeURIComponent(req.params.date);
+    const record = await songsCollection.findOne({ date });
+    if (record) {
+        res.json(record.fetchedSongs);
+    } else {
+        res.json([]);
+    }
+});
+
 app.get('/date', (req, res) => {
     res.json({ date: new Date() });
 });

@@ -1,10 +1,7 @@
 import "./songs.css"
 import React, { useState, useEffect } from 'react';
-import cover1 from '../../assets/rynweaver.jpeg'
-import cover2 from '../../assets/hippocampus.jpg'
-import cover3 from '../../assets/halfalive.jpg'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
-import { use } from "react";
+import {format, set} from 'date-fns';
 
 function Songs( {date}) {
     const [loading, setLoading] = useState(true);
@@ -67,8 +64,38 @@ function Songs( {date}) {
                 console.error('Error fetching song data:', error);
             }
         }
+        const updateSongs = async () => {
+            const formattedDate = encodeURIComponent(format(date, 'MM/dd/yyyy'));
+            try {
+                const response = await fetch(`http://localhost:4000/getSongs/${formattedDate}`);
+                const data = await response.json();
+                setSongData(data);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching songs:', error);
+            }
+        }
         fetch3songs();
-    }, []);
+        updateSongs();
+    }, [date]);
+    
+    // useEffect(() => {
+    //     console.log('Fetching song data...');
+    //     const formattedDate = encodeURIComponent(format(date, 'MM/dd/yyyy'));
+    //     const getSongData = async () => {
+    //         try {
+    //             const response = await fetch(`http://localhost:4000/songs/${formattedDate}`);
+    //             const data = await response.json();
+    //             setSongData(data);
+    //             console.log('Song data fetched successfully:', data);
+    //             setLoading(false);
+    //         } catch (error) {
+    //             console.error('Error fetching song data:', error);
+    //         }
+    //     }
+    //     getSongData();
+    // }, [date]);
+
     if (loading) {
         return <p>Loading...</p>;
     }

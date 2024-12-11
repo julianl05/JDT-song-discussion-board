@@ -6,8 +6,4 @@
     padding: 20px;
     font-weight: bold;
 }
-#dateContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+

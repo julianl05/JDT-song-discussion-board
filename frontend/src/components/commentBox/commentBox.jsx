@@ -3,10 +3,10 @@ import "./commentBox.css";
 import { useState } from "react";
 import { format } from 'date-fns';
 
-function CommentBox({ updateComments }) {
+function CommentBox({ updateComments, date }) {
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
-    const formattedDate = encodeURIComponent(format(new Date(), 'MM/dd/yyyy'));
+    const formattedDate = encodeURIComponent(format(date, 'MM/dd/yyyy'));
 
     const handleSubmit = async (event) => {
         event.preventDefault();

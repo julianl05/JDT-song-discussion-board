@@ -5,6 +5,8 @@ import Songs from './components/songs/songs'
 import Comment from './components/comment/comment'
 import CommentBox from './components/commentBox/commentBox'
 import CommentList from './components/commentList/commentList'
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { useState } from 'react'
 import { useEffect } from "react";
 import { format } from 'date-fns'
@@ -27,11 +29,20 @@ function App() {
   //       }
   //   };
   //   fetchDate();
-  // }, []);
+  // }, [])
   useEffect(() => {
     updateComments();
-  }, []);
-  
+  }, [currentDate]);
+
+  async function updateSongs() {
+    try {
+      const response = await fetch('http://localhost:4000/3songs');
+      const data = await response.json();
+      setSongs(data);
+    } catch (error) {
+      console.error('Error fetching songs:', error);
+    }
+  }
   async function updateComments() {
     const formattedDate = encodeURIComponent(format(currentDate, 'MM/dd/yyyy'));
     try {
@@ -45,12 +56,40 @@ function App() {
   const addComment = (username, text) => {
     setComments(comments.concat({ username, text }));
   };
+  
+  function decrementDate() {
+    const newDate = new Date(currentDate);
+    newDate.setDate(newDate.getDate() - 1);
+    setCurrentDate(newDate);  
+  }
+
+  function incrementDate() {
+    if (currentDate.toDateString() === new Date().toDateString()) {
+      return;
+    }
+    const newDate = new Date(currentDate);
+    newDate.setDate(newDate.getDate() + 1);
+    setCurrentDate(newDate);  
+  }
+
+  const arrowStyles = {
+    fontSize: 50,
+    cursor: 'pointer',
+    color: '#333333',
+    '&:hover': {
+        color: 'gray'  
+    }
+  }
 
   return (
     <>
       <Navbar/>
       <div class="container">
-        <CurrentDate date={currentDate}/>
+        <div id="dateContainer">
+          <ArrowLeftIcon onClick={decrementDate} sx={arrowStyles}/>
+          <CurrentDate date={currentDate}/>
+          <ArrowRightIcon onClick={incrementDate} sx={arrowStyles}/>
+        </div>
         <Songs date={currentDate}/>
         <div class="commentSection">
           <div id="commentsDiv">
@@ -58,7 +97,7 @@ function App() {
                   <h2>Discussion</h2>
               </div>
               <CommentList comments={comments}/>
-              <CommentBox updateComments={updateComments}/>
+              <CommentBox updateComments={updateComments} date={currentDate}/>
           </div>
         </div>
       </div>
