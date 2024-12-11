@@ -17,6 +17,7 @@ import { format } from 'date-fns'
 function App() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [comments, setComments] = useState([]);
+  const isCurrentDate = currentDate.toDateString() === new Date().toDateString();
   // useEffect(() => {
   //   console.log('Fetching date...');
   //   const fetchDate = async () => {
@@ -72,7 +73,7 @@ function App() {
     setCurrentDate(newDate);  
   }
 
-  const arrowStyles = {
+  const leftArrowStyles = {
     fontSize: 50,
     cursor: 'pointer',
     color: '#333333',
@@ -81,14 +82,21 @@ function App() {
     }
   }
 
+  const rightArrowStyles = {
+    fontSize: 50,
+    cursor: isCurrentDate ? 'default' : 'pointer',
+    color: isCurrentDate ? 'gray' : '#333333',
+    '&:hover': isCurrentDate ? {} : {color: 'lightgray'}
+  }
+
   return (
     <>
       <Navbar/>
       <div class="container">
         <div id="dateContainer">
-          <ArrowLeftIcon onClick={decrementDate} sx={arrowStyles}/>
+          <ArrowLeftIcon onClick={decrementDate} sx={leftArrowStyles}/>
           <CurrentDate date={currentDate}/>
-          <ArrowRightIcon onClick={incrementDate} sx={arrowStyles}/>
+          <ArrowRightIcon onClick={incrementDate} sx={rightArrowStyles}/>
         </div>
         <Songs date={currentDate}/>
         <div class="commentSection">
