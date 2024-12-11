@@ -85,8 +85,8 @@ function App() {
   const rightArrowStyles = {
     fontSize: 50,
     cursor: isCurrentDate ? 'default' : 'pointer',
-    color: isCurrentDate ? 'gray' : '#333333',
-    '&:hover': isCurrentDate ? {} : {color: 'lightgray'}
+    color: isCurrentDate ? 'lightgray' : '#333333',
+    '&:hover': isCurrentDate ? {} : {color: 'gray'}
   }
 
   return (
