@@ -13,9 +13,9 @@ function Songs( {date}) {
             try {
                 const response = await fetch('https://lit-temple-38398-8cae6dc3273e.herokuapp.com/3songs');
                 const data = await response.json();
-                // setSongData(data);
+                setSongData(data);
                 console.log('Song data fetched successfully:', data);
-                // setLoading(false);
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching song data:', error);
             }
