@@ -141,10 +141,11 @@ app.get('/date', (req, res) => {
     res.json({ date: new Date() });
 });
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Song Discussion Board API!');
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the Song Discussion Board API!');
-});
