@@ -34,16 +34,7 @@ function App() {
   useEffect(() => {
     updateComments();
   }, [currentDate]);
-
-  async function updateSongs() {
-    try {
-      const response = await fetch('https://lit-temple-38398-8cae6dc3273e.herokuapp.com/3songs');
-      const data = await response.json();
-      setSongs(data);
-    } catch (error) {
-      console.error('Error fetching songs:', error);
-    }
-  }
+  
   async function updateComments() {
     const formattedDate = encodeURIComponent(format(currentDate, 'MM/dd/yyyy'));
     try {

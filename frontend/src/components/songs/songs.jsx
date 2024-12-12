@@ -23,7 +23,7 @@ function Songs( {date}) {
         const updateSongs = async () => {
             const formattedDate = encodeURIComponent(format(date, 'MM/dd/yyyy'));
             try {
-                const response = await fetch(`https://lit-temple-38398-8cae6dc3273e.herokuapp.com/${formattedDate}`);
+                const response = await fetch(`https://lit-temple-38398-8cae6dc3273e.herokuapp.com/getSongs/${formattedDate}`);
                 const data = await response.json();
                 setSongData(data);
                 setLoading(false);
