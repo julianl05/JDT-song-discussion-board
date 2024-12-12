@@ -11,7 +11,7 @@ function Songs( {date}) {
         console.log('Fetching song data...');
         const dailyUpdate = async () => {
             try {
-                const response = await fetch('http://localhost:4000/3songs');
+                const response = await fetch('https://lit-temple-38398-8cae6dc3273e.herokuapp.com/3songs');
                 const data = await response.json();
                 // setSongData(data);
                 console.log('Song data fetched successfully:', data);
@@ -23,7 +23,7 @@ function Songs( {date}) {
         const updateSongs = async () => {
             const formattedDate = encodeURIComponent(format(date, 'MM/dd/yyyy'));
             try {
-                const response = await fetch(`http://localhost:4000/getSongs/${formattedDate}`);
+                const response = await fetch(`https://lit-temple-38398-8cae6dc3273e.herokuapp.com/${formattedDate}`);
                 const data = await response.json();
                 setSongData(data);
                 setLoading(false);

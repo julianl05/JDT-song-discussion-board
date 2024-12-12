@@ -15,7 +15,7 @@ function CommentBox({ updateComments, date }) {
             return;
         }
         console.log('Submitting comment:', JSON.stringify({ username, comment }));
-        const response = await fetch(`http://localhost:4000/comments/${formattedDate}`, {
+        const response = await fetch(`https://lit-temple-38398-8cae6dc3273e.herokuapp.com/${formattedDate}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
