@@ -37,7 +37,7 @@ function App() {
 
   async function updateSongs() {
     try {
-      const response = await fetch('http://localhost:4000/3songs');
+      const response = await fetch('https://lit-temple-38398-8cae6dc3273e.herokuapp.com/3songs');
       const data = await response.json();
       setSongs(data);
     } catch (error) {
@@ -47,7 +47,7 @@ function App() {
   async function updateComments() {
     const formattedDate = encodeURIComponent(format(currentDate, 'MM/dd/yyyy'));
     try {
-      const response = await fetch(`http://localhost:4000/comments/${formattedDate}`);
+      const response = await fetch(`https://lit-temple-38398-8cae6dc3273e.herokuapp.com/comments/${formattedDate}`);
       const data = await response.json();
       setComments(data);
     } catch (error) {
