@@ -16,30 +16,12 @@
 
 A web app where users discuss 3 randomly selected songs queried from the GeniusAPI, updated daily. Checkout a live demo here: [Link](https://benevolent-bonbon-e0ef4f.netlify.app/)
 
-## 🏁 Getting Started <a name = "getting_started"></a>
-
-
-### Prerequisites
-
-
-
-### Installing
-
-
-
-## 🎈 Usage <a name="usage"></a>
-
-
-
-## 🚀 Deployment <a name = "deployment"></a>
-
-
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [MongoDB](https://www.mongodb.com/) 
 - [Express](https://expressjs.com/)
 - [NodeJs](https://nodejs.org/en/)
-- [ReactJs]
+- [ReactJs](https://react.dev/)
 
 ## ✍️ Authors <a name = "authors"></a>
 
