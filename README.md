@@ -14,7 +14,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-A web app where users discuss 3 randomly selected songs queried from the GeniusAPI, updated daily. 
+A web app where users discuss 3 randomly selected songs queried from the GeniusAPI, updated daily. Checkout a live demo here: [Link](https://benevolent-bonbon-e0ef4f.netlify.app/)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
